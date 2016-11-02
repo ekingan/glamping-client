@@ -1,5 +1,5 @@
 import {
-	AUTH_USER, 
+	AUTH_USER,
 	UNAUTH_USER,
 	AUTH_ERROR
 } from '../actions/types';
