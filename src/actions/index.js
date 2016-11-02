@@ -4,6 +4,7 @@ import {
 	AUTH_USER,
 	AUTH_ERROR,
 	UNAUTH_USER,
+	FETCH_MESSAGE
  } from './types';
 
 const ROOT_URL = 'http://localhost:3090';
@@ -44,5 +45,20 @@ export function authError(error) {
 
 export function signoutUser() {
 	localStorage.removeItem('token');
-	return { type: UNAUTH_USER}
+	return { type: UNAUTH_USER };
+}
+
+//this can be used to fetch anything, first sending token in header
+export function fetchMessage() {
+	return function(dispatch) {
+		axios.get(ROOT_URL, {
+			headers: { authorization: localStorage.getItem('token') }
+		})
+		.then(response => {
+			dispatch({
+				type: FETCH_MESSAGE,
+				payload: response.data.message
+			});
+		});
+	}
 }
