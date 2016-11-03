@@ -6,7 +6,6 @@ import InputText from '../forms/input_text';
 class Signup extends Component {
 
   handleFormSubmit(formProps) {
-    console.log(formProps);
     //call action to sign up the user
     this.props.signupUser(formProps);
   }

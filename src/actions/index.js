@@ -32,7 +32,10 @@ export function signupUser({ email, password }) {
 			localStorage.setItem('token', response.data.token);
 			browserHistory.push('/feature');
 		})
-		.catch(response => dispatch(authError(response.data.error)));
+		.catch((response) => {
+			console.log(response);
+			dispatch(authError("Sign up failed, that email may already be in use. Please try again"));
+		})
 	}
 }
 
