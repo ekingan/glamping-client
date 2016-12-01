@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-	
+
 
 class Header extends Component {
-	
+
 	renderLinks() {
 		if (this.props.authenticated) {
-			return (
-				<li className="nav-item">
+			return [
+				<li className="nav-item" key={1}>
 					<Link className="nav-link" to="/signout">Sign Out</Link>
+				</li>,
+				<li className="nav-item" key={2}>
+					<Link className="nav-link" to="/posts/new">Post</Link>
 				</li>
-			)
+			];
 		} else {
 			return [
 				<li className="nav-item" key={1}>
@@ -20,7 +23,7 @@ class Header extends Component {
 				<li className="nav-item" key={2}>
 					<Link className="nav-link" to="/signup">Sign Up</Link>
 				</li>
-			];	
+			];
 		}
 
 	}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
-import * as actions from '../../actions';
+import * as actions from '../../actions/auth';
 import InputText from '../forms/input_text';
 
 class Signup extends Component {
